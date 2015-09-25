@@ -57,6 +57,9 @@ function requestbody(opts) {
       else if (opts.multipart && this.is('multipart')) {
         body = yield formy(this, opts.formidable);
       }
+      else {
+        body = yield buddy.text(this);
+      }
     }
 
     if (opts.patchNode) {
